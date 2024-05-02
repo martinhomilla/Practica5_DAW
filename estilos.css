@@ -33,8 +33,21 @@ p .error {
 }
 
 div {
-    text-align: center;
+    justify-content: center;
     display: flex;
     flex-direction: row;
     gap: 10px;
+}
+
+form.registro {
+    display: flex;
+    flex-direction: column;
+}
+
+form.registro label {
+    display: block;
+}
+
+form.registro input {
+    margin-bottom: 10px;
 }
