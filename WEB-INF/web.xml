@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app>
+    <servlet>
+        <servlet-name>Formulario</servlet-name>
+        <servlet-class>com.formParametros</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Formulario</servlet-name>
+        <url-pattern>/miFormulario</url-pattern>
+    </servlet-mapping>        
+
+</web-app>
