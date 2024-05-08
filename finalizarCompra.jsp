@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,17 +9,28 @@
     <link rel="stylesheet"  href="estilos.css">
 </head>
 <body>
-    <h1></h1>
-    <p>Registrar usuario</p>
-    <form method="post" action="Registro">
-        <label for="usuario">Usuario</label>
-        <input type="text" name="usuario" placeholder="Usuario">
-        <label for="password">Contraseña</label>
-        <input type="password" name="password" placeholder="Contraseña">
-        <label for="tipoTarjeta">Tipo de tarjeta</label>
-        <input type="text" name="tipoTarjeta">
-        <label for="numeroTarjeta">Numero de tarjeta</label>
-        <input type="text" name="numeroTarjeta">
-        <input type="submit" value="Volver a la tienda">
-    </form>
+    <h1>Usuario: ${usuario}</h1>
+    <h2> A pagar con tarjeta: ${numeroTarjeta}</h2>
+    <table>
+        <tr>
+            <th>Importe Total</th>
+            <td>${total}$</td>            
+        </tr>
+    </table>
+
+    <div class=menu>
+        <form action="index.html" method="post">
+            <input type="hidden" name="accion" value="cancelar">
+            <input type="submit" value="Cancelar">
+        </form>
+        <form action="gestionarBD" method="post">    
+            <input type="hidden" name="usuario" value="${usuario}">
+            <input type="hidden" name="numeroTarjeta" value="${numeroTarjeta}">
+            <input type="hidden" name="total" value="${total}">
+            <input type="hidden" name="accion" value="registrarPedido">    
+            <input type="submit" value="Pagar">
+        </form>
+    </div>
+
+     
 </body>

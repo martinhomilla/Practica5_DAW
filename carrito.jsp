@@ -44,20 +44,22 @@
                             <td>${producto.precio}$</td>
                             <td class="botones" style="border:none; display:flex; flex-direction:row; gap:3px;">
                             
-                                <form action="eliminarProductoCarrito.jsp" method="post">
+                                <form action="miFormulario" method="post">
                                     <input type="hidden" name="titulo" value="${producto.titulo}">
+                                    <input type="hidden" name="accion" value="eliminar">
                                     <input type="submit" value="Eliminar">                    
                                 </form>
-                                <form action="aumentarProducto.jsp" method="post">
+                                <form action="miFormulario" method="post">
 
                                     <input type="hidden" name="titulo" value="${producto.titulo}">
                                     <input type="hidden" name="cantidad" value="${producto.cantidad}">
+                                    <input type="hidden" name="accion" value="sumar">
                                     <input type="submit" value="+">                    
                                 </form>
-                                <form action="disminuirProducto.jsp" method="post">
+                                <form action="miFormulario" method="post">
                                     <input type="hidden" name="cantidad" value="${producto.cantidad}">
-
                                     <input type="hidden" name="titulo" value="${producto.titulo}">
+                                    <input type="hidden" name="accion" value="restar">
                                     <input type="submit" value="-">                    
                                 </form>
                             </td>
@@ -70,32 +72,54 @@
         
     </table>
 
-    <table>
-    <tr>
-        <th>Importe Total</th>
-        <td>
-            <c:choose>
-                <c:when test="${not empty carrito.productos}">
-                    ${carrito.total}$
-                </c:when>
-                <c:otherwise>
-                    0$
+    <c:choose>
+        <c:when test="${not empty carrito.productos}">
+                   
+            <table>
+            <tr>
+                <th>Importe Total</th>
+                <td>${carrito.total}$</td> 
+            </tr>
+            </table>
+
+            <form action="miFormulario" method="post">
+                <input type="hidden" name="accion" value="vaciar">
+                <input type="submit" value="Vaciar Carrito">
+            </form>
+            <hr>
+            <div class = "menu">        
+                <form action="index.html" method="post">
+                    <input type="submit" value="Seguir Comprando">
+                </form>       
+                 <form action="pago.jsp" method="post">
+                    
+                    <input type="submit" value="Pagar Compra">
+                </form>
+            </div>
+            </c:when>
+            <c:otherwise>
+                     <table>
+            <tr>
+                <th>Importe Total</th>
+                <td>0$</td>                 
+                
+            </tr>
+            </table>
+            <form action="miFormulario" method="post">
+                <input type="hidden" name="accion" value="vaciar">
+                <input type="submit" value="Vaciar Carrito" disabled>
+            </form>
+            <hr>
+            <div class = "menu">        
+                <form action="index.html" method="post">
+                    <input type="submit" value="Seguir Comprando">
+                </form>        <form action="pago.jsp" method="post">
+                    <input type="submit" value="Pagar Compra" disabled>
+                </form>
+            </div>
                 </c:otherwise>
-            </c:choose>
-        </td>
-    </tr>
-</table>
-    <form action="eliminarCarrito.jsp" method="post">
-        <input type="submit" value="Vaciar Carrito">
-    </form>
-    <hr>
-    <div class = "menu">        
-        <form action="index.html" method="post">
-            <input type="submit" value="Seguir Comprando">
-        </form>        <form action="pago.jsp" method="post">
-            <input type="submit" value="Pagar Compra">
-        </form>
-    </div>
+    </c:choose>
+    
 
 
 </body>

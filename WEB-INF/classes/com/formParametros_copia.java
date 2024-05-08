@@ -1,16 +1,16 @@
+
+
+
 package com;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-import com.Producto;
-import com.Carrito;
-
 import org.omg.CORBA.Request;
 
 
 
-public class formParametros extends HttpServlet {
+public class formParametros_copia extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();

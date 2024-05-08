@@ -3,7 +3,7 @@
 <web-app>
     <servlet>
         <servlet-name>Formulario</servlet-name>
-        <servlet-class>com.formParametros</servlet-class>
+        <servlet-class>com.GestionCarrito</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -13,13 +13,14 @@
 
     <servlet>
         <servlet-name>Registro</servlet-name>
-        <servlet-class>com.Registro</servlet-class>
+        <servlet-class>com.GestionBD</servlet-class>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>Registro</servlet-name>
-        <url-pattern>/Registro</url-pattern>
-    </servlet-mapping>        
+        <url-pattern>/gestionarBD</url-pattern>
+    </servlet-mapping>            
+        
      
 
 </web-app>

@@ -27,6 +27,8 @@ public class Carrito {
         return (float) (Math.round(total * 100.0) / 100.0);
     }
 
+   
+
     public void vaciar() {
         total = 0;
         productos.clear();
