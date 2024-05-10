@@ -17,8 +17,13 @@
 </head>
 <body>
     <h1> PEDIDO REALIZADO CON EXITO</h1>
-    <h2> Informacion de la compra del usuario ${usuario}</h2>
+    <h2> Información de la compra del usuario <span style="color:orange;">${usuario}</span></h2>
     <table>
+        <tr>
+            <th>Título</th>
+            <th>Cantidad</th>
+            <th>Importe</th>
+        </tr>
          <c:forEach var="producto" items="${carrito.productos}">            
                     <tr>
                             <td>${producto.titulo}</td>
