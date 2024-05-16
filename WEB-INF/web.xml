@@ -8,7 +8,7 @@
 
     <servlet-mapping>
         <servlet-name>Formulario</servlet-name>
-        <url-pattern>/miFormulario</url-pattern>
+        <url-pattern>/gestionarCarrito</url-pattern>
     </servlet-mapping>   
 
     <servlet>

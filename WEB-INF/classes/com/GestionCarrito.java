@@ -3,10 +3,10 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-import com.Producto;
-import com.Carrito;
-
 import org.omg.CORBA.Request;
+
+import minitienda.Carrito;
+import minitienda.Producto;
 
 
 
@@ -87,6 +87,13 @@ public class GestionCarrito extends HttpServlet {
                 response.sendRedirect("index.html");
 
                 break;
+            case "acabar":
+                carrito.vaciar();
+                request.removeAttribute("carrito");
+                session.invalidate();
+                response.sendRedirect("index.html");
+                break;
+
             default:
                 break;
             }
@@ -115,6 +122,7 @@ public class GestionCarrito extends HttpServlet {
             producto.setTitulo(nombre);
             producto.setPrecio(precio);
             producto.setCantidad(cantidad);
+            producto.setTotal(precio * cantidad);
             carrito.agregarProducto(producto);                        
             return true;
             

@@ -54,6 +54,7 @@ public class Carrito {
                 }
                 total += (cantidad - producto.getCantidad()) * (float)(Math.round(producto.getPrecio() * 100.0) / 100.0);
                 producto.setCantidad(cantidad);
+                producto.setTotal(producto.getPrecio() * cantidad);
                 return;
             }
         }

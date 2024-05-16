@@ -6,6 +6,7 @@ public class Producto implements Serializable{
     private String titulo;
     private float precio;
     private int cantidad;
+    private float total;
 
     
 
@@ -20,7 +21,11 @@ public class Producto implements Serializable{
         return cantidad;
     }
 
-    //setter 
+    public float getTotal() {
+        return total;
+    }
+
+    //setters
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
@@ -30,8 +35,8 @@ public class Producto implements Serializable{
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
-
-    public float getTotal() {
-        return (float) (Math.round(precio * cantidad * 100.0) / 100.0);
+    public void setTotal(float total) {
+        this.total = (float) (Math.round(total * 100.0) / 100.0);
     }
+
 }

@@ -72,3 +72,10 @@ section article {
     padding: 20px;
     border-radius: 5px;
 }
+
+
+button,
+input[type="submit"] {
+    padding: 5px 10px;
+    font-size: 14px;
+}

@@ -20,7 +20,7 @@
     <h2> Información de la compra del usuario <span style="color:orange;">${usuario}</span></h2>
     <table>
         <tr>
-            <th>Título</th>
+            <th>Producto</th>
             <th>Cantidad</th>
             <th>Importe</th>
         </tr>
@@ -40,7 +40,8 @@
     
     
 
-    <form action="index.html" method="post">
+    <form action="gestionarCarrito" method="post">
+        <input type="hidden" name="accion" value="acabar">
         <input type="submit" value="Seguir Comprando">
     </form>    
 </body>

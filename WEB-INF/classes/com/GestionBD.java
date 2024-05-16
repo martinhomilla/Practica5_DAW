@@ -9,6 +9,7 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
+
 import org.omg.CORBA.Request;
 
 public class GestionBD extends HttpServlet {
@@ -205,13 +206,14 @@ public class GestionBD extends HttpServlet {
 	private void registrarPedido(HttpServletRequest request, HttpServletResponse response, Connection conexion) throws ServletException, IOException{
 
 		String insert = " ";
-		insert = "INSERT INTO pedidos (usuario, importe) VALUES (?, ?)";
+		insert = "INSERT INTO pedidos (usuario, importe, fecha) VALUES (?, ?, ?)";
         try {    
 			String usuario = request.getParameter("usuario");
 			Float total = Float.parseFloat(request.getParameter("total"));
 			PreparedStatement preparedStatement = conexion.prepareStatement(insert);
 			preparedStatement.setString(1, usuario);
 			preparedStatement.setFloat(2, total);
+			preparedStatement.setTimestamp(3, new java.sql.Timestamp(System.currentTimeMillis()));
 			preparedStatement.executeUpdate();
 
 			preparedStatement.close();

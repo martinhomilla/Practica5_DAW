@@ -22,7 +22,7 @@
    
     <table>
         <tr>
-            <th>Título</th>
+            <th>Producto</th>
             <th>Cantidad</th>
             <th>Importe</th>
         </tr>
@@ -41,22 +41,22 @@
                     <tr>
                             <td>${producto.titulo}</td>
                             <td>${producto.cantidad}</td>
-                            <td>${producto.precio}$</td>
+                            <td>${producto.total}$</td>
                             <td class="botones" style="border:none; display:flex; flex-direction:row; gap:3px;">
                             
-                                <form action="miFormulario" method="post">
+                                <form action="gestionarCarrito" method="post">
                                     <input type="hidden" name="titulo" value="${producto.titulo}">
                                     <input type="hidden" name="accion" value="eliminar">
                                     <input type="submit" value="Eliminar">                    
                                 </form>
-                                <form action="miFormulario" method="post">
+                                <form action="gestionarCarrito" method="post">
 
                                     <input type="hidden" name="titulo" value="${producto.titulo}">
                                     <input type="hidden" name="cantidad" value="${producto.cantidad}">
                                     <input type="hidden" name="accion" value="sumar">
                                     <input type="submit" value="+">                    
                                 </form>
-                                <form action="miFormulario" method="post">
+                                <form action="gestionarCarrito" method="post">
                                     <input type="hidden" name="cantidad" value="${producto.cantidad}">
                                     <input type="hidden" name="titulo" value="${producto.titulo}">
                                     <input type="hidden" name="accion" value="restar">
@@ -82,7 +82,7 @@
             </tr>
             </table>
 
-            <form action="miFormulario" method="post">
+            <form action="gestionarCarrito" method="post">
                 <input type="hidden" name="accion" value="vaciar">
                 <input type="submit" value="Vaciar Carrito">
             </form>
@@ -105,7 +105,7 @@
                 
             </tr>
             </table>
-            <form action="miFormulario" method="post">
+            <form action="gestionarCarrito" method="post">
                 <input type="hidden" name="accion" value="vaciar">
                 <input type="submit" value="Vaciar Carrito" disabled>
             </form>
