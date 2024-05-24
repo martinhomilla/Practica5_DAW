@@ -2,11 +2,18 @@ package com;
 
 import java.io.Serializable;
 
-public class Producto implements Serializable{
+public class ProductoBean implements Serializable{
     private String titulo;
     private float precio;
     private int cantidad;
     private float total;
+
+    public ProductoBean() {
+        this.titulo = "";
+        this.precio = 0;
+        this.cantidad = 0;
+        this.total = 0;
+    }
 
     
 

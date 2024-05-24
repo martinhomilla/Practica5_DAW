@@ -1,6 +1,6 @@
 
-<%@ page import="com.Producto " %>
-<%@ page import="com.Carrito " %>
+<%@ page import="com.ProductoBean " %>
+<%@ page import="com.CarritoBean" %>
 
 <%@ page isELIgnored="false" %>
 <%@ page session="true"%>

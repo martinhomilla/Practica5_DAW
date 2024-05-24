@@ -1,12 +1,41 @@
 package com;
 
+import java.io.Serializable;
 import java.util.ArrayList;
-public class Carrito {
-    ArrayList<Producto> productos = new ArrayList<Producto>();
-    float total = 0;
 
-    public void agregarProducto(Producto producto) {
-        for (Producto p : productos) {
+
+public class CarritoBean implements Serializable{
+    private ArrayList<ProductoBean>  productos;
+    private float total;
+
+
+    public CarritoBean() {
+        productos = new ArrayList<ProductoBean>();
+        total = 0;
+    }
+    public ArrayList<ProductoBean> getProductos() {
+        return productos;
+    }
+
+    public float getTotal() {
+       
+        return (float) (Math.round(total * 100.0) / 100.0);
+    }
+
+    public void setTotal(float total) {
+        this.total = total;
+    }
+    
+    public void setProductos(ArrayList<ProductoBean> productos) {
+        this.productos = productos;
+    }
+    
+
+    
+
+
+    public void agregarProducto(ProductoBean producto) {
+        for (ProductoBean p : productos) {
                 if(p.getTitulo().equals(producto.getTitulo())){
                     p.setCantidad(p.getCantidad() + producto.getCantidad());
                     total += producto.getTotal();
@@ -18,15 +47,6 @@ public class Carrito {
         
     }
 
-    public ArrayList<Producto> getProductos() {
-        return productos;
-    }
-
-    public float getTotal() {
-       
-        return (float) (Math.round(total * 100.0) / 100.0);
-    }
-
    
 
     public void vaciar() {
@@ -35,7 +55,7 @@ public class Carrito {
     }
 
     public void eliminarProducto(String titulo) {
-        for (Producto producto : productos) {
+        for (ProductoBean producto : productos) {
             if (producto.getTitulo().equals(titulo)) {
                 productos.remove(producto);
                 total -= producto.getTotal();
@@ -45,7 +65,7 @@ public class Carrito {
     }
 
     public void actualizarProducto(String titulo, int cantidad) {
-        for (Producto producto : productos) {
+        for (ProductoBean producto : productos) {
             if (producto.getTitulo().equals(titulo)) {
                 if(cantidad == 0){
                     productos.remove(producto);

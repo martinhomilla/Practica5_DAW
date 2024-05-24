@@ -5,8 +5,8 @@ import javax.servlet.http.*;
 
 import org.omg.CORBA.Request;
 
-import minitienda.Carrito;
-import minitienda.Producto;
+import com.CarritoBean;
+import com.ProductoBean;
 
 
 
@@ -27,7 +27,7 @@ public class GestionCarrito extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         HttpSession session = request.getSession(true);
-        Carrito carrito = (Carrito) session.getAttribute("carrito");
+        CarritoBean carrito = (CarritoBean) session.getAttribute("carrito");
 
 
         String accion = request.getParameter("accion");
@@ -37,7 +37,7 @@ public class GestionCarrito extends HttpServlet {
             case "añadir":
                 if(carrito == null){          
                 
-                    carrito = new Carrito();
+                    carrito = new CarritoBean();
                     session.setAttribute("carrito", carrito);
                 }
                 if(agregarAlCarrito(request,response, carrito)){
@@ -101,7 +101,7 @@ public class GestionCarrito extends HttpServlet {
     }
 
 
-    private boolean agregarAlCarrito(HttpServletRequest request,HttpServletResponse response, Carrito carrito) throws ServletException, IOException{       
+    private boolean agregarAlCarrito(HttpServletRequest request,HttpServletResponse response, CarritoBean carrito) throws ServletException, IOException{       
 
 
         // Obtener los parámetros del producto y la cantidad
@@ -118,7 +118,7 @@ public class GestionCarrito extends HttpServlet {
         // Validar si los parámetros no son nulos y no están vacíos
         if (nombre != null && !nombre.isEmpty() && cantidad > 0 ){// cantidad != null && !cantidad.isEmpty()) {
             // Agregar el producto al carrito de compras
-            Producto producto = new Producto();
+            ProductoBean producto = new ProductoBean();
             producto.setTitulo(nombre);
             producto.setPrecio(precio);
             producto.setCantidad(cantidad);
