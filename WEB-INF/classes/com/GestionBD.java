@@ -73,8 +73,10 @@ public class GestionBD extends HttpServlet {
             Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection("jdbc:postgresql://" + host + ":" + port + "/" + database, user, password);
         } catch (SQLException e) {
-            e.printStackTrace();
-        }
+			throw new SQLException("Error al conectar con la base de datos: " + e.getMessage());
+		} catch (Exception e) {
+			throw new Exception("Error al conectar con la base de datos: " + e.getMessage());
+		} 		
         return connection;
     }
 
@@ -140,13 +142,13 @@ public class GestionBD extends HttpServlet {
         } catch (SQLException e) {
             // Captura de excepciones y reenvío a página de error
             request.setAttribute("error_message", "Error al registrar usuario: " + e.getMessage());
-            RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("pago.jsp");
             rd.forward(request, response);
         }
 		catch (Exception e) {
 			// Captura de excepciones y reenvío a página de error
 			request.setAttribute("error_message", "Error al registrar usuario: " + e.getMessage());
-			RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("pago.jsp");
 			rd.forward(request, response);
 		}
 
@@ -183,7 +185,7 @@ public class GestionBD extends HttpServlet {
 		} catch (SQLException e) {
 			// Captura de excepciones y reenvío a página de error
 			request.setAttribute("error_message", "Error al iniciar sesión: " + e.getMessage());
-			RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("pago.jsp");
 			try {
 				rd.forward(request, response);
 			} catch (ServletException | IOException e1) {
@@ -193,7 +195,7 @@ public class GestionBD extends HttpServlet {
 		catch (Exception e) {
 			// Captura de excepciones y reenvío a página de error
 			request.setAttribute("error_message", "Error al iniciar sesión: " + e.getMessage());
-			RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("pago.jsp");
 			try {
 				rd.forward(request, response);
 			} catch (ServletException | IOException e1) {
@@ -228,13 +230,13 @@ public class GestionBD extends HttpServlet {
 		} catch (SQLException e) {
 			// Captura de excepciones y reenvío a página de error
 			request.setAttribute("error_message", "Error al registrar usuario: " + e.getMessage());
-			RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("pago.jsp");
 			rd.forward(request, response);
 		}
 		catch (Exception e) {
 			// Captura de excepciones y reenvío a página de error
 			request.setAttribute("error_message", "Error al registrar usuario: " + e.getMessage());
-			RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("pago.jsp");
 			rd.forward(request, response);
 		}
 

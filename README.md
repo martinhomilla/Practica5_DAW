@@ -15,9 +15,9 @@ La aplicación utiliza el gestor de base de datos PostgreSQL. Asegúrese de tene
 1. Cree una base de datos llamada `minitienda` en su servidor PostgreSQL.
 2. La BD debe tener las siguientes tablas:
 
-    2.1 `Usuarios`, con propiedades nombre, password, tipo_tarjeta y numero_tarjeta.
+    2.1 `usuarios`, con propiedades nombre, password, tipo_tarjeta y numero_tarjeta.
 
-    2.2 `Pedidos`, con propiedades usuario, importe, fecha.
+    2.2 `pedidos`, con propiedades usuario, importe, fecha.
 
 ## Patrón Modelo-Vista-Controlador (MVC)
 
