@@ -26,8 +26,8 @@ public class GestionBD extends HttpServlet {
 
 
 	public void init() throws ServletException  {
-        // Load database properties
-        Properties dbProps = new Properties();
+		// Se cargan las propiedades de la base de datos
+		Properties dbProps = new Properties();
         InputStream input = null;
 		try {
 			input = getServletContext().getResourceAsStream("/WEB-INF/dbconfig.properties");
@@ -38,8 +38,10 @@ public class GestionBD extends HttpServlet {
 			userBD = dbProps.getProperty("db.user");
 			passwordBD = dbProps.getProperty("db.password");
 
+			// Se crea la conexión con la base de datos
 			conexion = new Conexion(host, port, database, userBD, passwordBD);
-
+			
+			// Se crean los objetos DAO
 			try {
 				usuarioDAO = new UsuarioDAO(conexion.getConnection());
 				pedidoDAO = new PedidoDAO(conexion.getConnection());
@@ -50,7 +52,7 @@ public class GestionBD extends HttpServlet {
 			}
 
 } catch (IOException e ) {
-	throw new ServletException("Failed to load database properties", e);
+	throw new ServletException("Error al obtener las propiedades de la base de datos", e);
 } finally {
 	if (input != null) {
 		try {
@@ -61,8 +63,7 @@ public class GestionBD extends HttpServlet {
 	}
 }
     }
-
-	@Override
+	// Método para cerrar la conexión con la base de datos al destruir el servlet
 	public void destroy() {
 		// Close the database connection
 		try {
@@ -76,11 +77,7 @@ public class GestionBD extends HttpServlet {
 
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-
-        HttpSession session = request.getSession(true);
-
+        response.setContentType("text/html");	
 		String accion = request.getParameter("accion");
 		
 		switch (accion) {
