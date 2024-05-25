@@ -6,7 +6,7 @@ Este proyecto es una minitienda en línea desarrollada utilizando tecnologías w
 ## Tecnologías utilizadas
 - Lenguaje de programación: Java
 - Gestor de base de datos: PostgreSQL
-- Frontend: HTML, CSS, JS
+- Frontend: HTML, CSS, JSP
 - Servidor de aplicaciones: Apache Tomcat
 
 ## Configuración de la base de datos
@@ -18,13 +18,15 @@ La aplicación utiliza el gestor de base de datos PostgreSQL. Asegúrese de tene
     2.1 `usuarios`, con propiedades nombre, password, tipo_tarjeta y numero_tarjeta.
 
     2.2 `pedidos`, con propiedades usuario, importe, fecha.
+3. La configuración de la Base de Datos para establecer la conexión se establece en el archivo dbconfig.properties
 
 ## Patrón Modelo-Vista-Controlador (MVC)
 
 El patrón Modelo-Vista-Controlador (MVC) se utiliza en este proyecto para separar las responsabilidades de cada componente:
 
-- **Modelo**: Se encarga de la lógica de negocio y el acceso a los datos. En este caso serían los JavaBeans CarritoBean y ProductoBean, además de la parte de los servlets que acceden a la Base de Datos. 
+- **Modelo**: Se encarga de la lógica de negocio y el acceso a los datos. En este caso serían los JavaBeans CarritoBean y ProductoBean, además de las clases que acceden a la Base de Datos. 
 
 - **Vista**: Muestra la información al usuario de manera visualmente atractiva. De esto se ocupan los JSP.
 - **Controlador**: Actúa como intermediario entre el modelo y la vista, procesando las solicitudes del usuario y actualizando la vista en consecuencia. Este papel lo juegan los servlets, que controlan las peticiones y respuestas del cliente.
+
 
