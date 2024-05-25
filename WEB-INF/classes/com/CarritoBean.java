@@ -3,6 +3,13 @@ package com;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/*
+ * 
+ * Clase que representa un carrito de compras.
+ * Sus atributos son: productos y total.
+ * productos: lista de productos.
+ * total: precio total de los productos en el carrito.
+ */
 
 public class CarritoBean implements Serializable{
     private ArrayList<ProductoBean>  productos;

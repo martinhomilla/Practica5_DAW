@@ -5,9 +5,6 @@ import javax.servlet.http.*;
 
 import org.omg.CORBA.Request;
 
-import com.CarritoBean;
-import com.ProductoBean;
-
 
 
 public class GestionCarrito extends HttpServlet {
@@ -16,7 +13,6 @@ public class GestionCarrito extends HttpServlet {
 		      HttpServletResponse response)
 	throws ServletException, IOException 
     {
-        // Luego, puedes redirigir a la página del carrito
         RequestDispatcher rd = request.getRequestDispatcher("carrito.jsp");
         rd.forward(request, response);
     }
@@ -47,7 +43,7 @@ public class GestionCarrito extends HttpServlet {
                 else{
                     RequestDispatcher rd = request.getRequestDispatcher("index.html");
                     rd.include(request, response);
-                    out.println("<p class = error>Error: Cantidad de productos incorrecta.</p>");
+                    out.println("<p style = \"color:red;\">Error: Cantidad de productos incorrecta.</p>");
                 }              
                 
                 
@@ -82,11 +78,7 @@ public class GestionCarrito extends HttpServlet {
                 response.sendRedirect("carrito.jsp");
 
                 break;
-            case "pagar":
-                
-                response.sendRedirect("index.html");
-
-                break;
+            
             case "acabar":
                 carrito.vaciar();
                 request.removeAttribute("carrito");

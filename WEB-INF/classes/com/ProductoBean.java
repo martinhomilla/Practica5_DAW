@@ -2,6 +2,18 @@ package com;
 
 import java.io.Serializable;
 
+/**
+ * Clase que representa un conjunto de productos en un carrito de compras.
+ * Sus atributos son: titulo, precio, cantidad y total.
+ * titulo: nombre del producto.
+ * precio: precio unitario del producto.
+ * cantidad: cantidad de productos.
+ * total: precio total de la cantidad de productos. 
+ * 
+ * 
+ * @version 1.0
+ * @since 2024-05-25
+ */
 public class ProductoBean implements Serializable{
     private String titulo;
     private float precio;

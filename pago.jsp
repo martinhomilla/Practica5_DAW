@@ -1,4 +1,4 @@
-<%@ page import="com.Carrito " %>
+<%@ page import="com.CarritoBean " %>
 <%@ page isELIgnored="false" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -7,9 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pago</title>
-    <link rel="stylesheet"  href="estilos.css">
-
-    
+    <link rel="stylesheet"  href="estilos.css">s   
 
 
 
@@ -46,9 +44,9 @@
                 <label for="password">Contraseña</label>
                 <input type="password" name="password" placeholder="Contraseña">
                 <label for="tipoTarjeta">Tipo de tarjeta</label>
-                <input type="text" name="tipoTarjeta">
+                <input type="text" name="tipoTarjeta"  placeholder="Tipo de Tarjeta">
                 <label for="numeroTarjeta">Numero de tarjeta</label>
-                <input type="text" name="numeroTarjeta">
+                <input type="text" name="numeroTarjeta" placeholder="Número de Tarjeta">
                 <input type="hidden" name="total" value="${carrito.total}">
                 <input type="hidden" name="accion" value="registrarUsuario">
                 <input type="submit" value="Registrar">
