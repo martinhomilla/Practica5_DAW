@@ -3,8 +3,6 @@
 ## Descripción
 Este proyecto es una minitienda en línea desarrollada utilizando tecnologías web. Permite a los usuarios realizar compras de productos y administrar su carrito de compras.
 
-
-
 ## Tecnologías utilizadas
 - Lenguaje de programación: Java
 - Gestor de base de datos: PostgreSQL

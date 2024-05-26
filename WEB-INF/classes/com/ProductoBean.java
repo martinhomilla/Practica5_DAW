@@ -8,13 +8,13 @@ import java.io.Serializable;
  * titulo: nombre del producto.
  * precio: precio unitario del producto.
  * cantidad: cantidad de productos.
- * total: precio total de la cantidad de productos. 
+ * total: precio total de la cantidad de productos.
  * 
  * 
  * @version 1.0
  * @since 2024-05-25
  */
-public class ProductoBean implements Serializable{
+public class ProductoBean implements Serializable {
     private String titulo;
     private float precio;
     private int cantidad;
@@ -27,15 +27,14 @@ public class ProductoBean implements Serializable{
         this.total = 0;
     }
 
-    
-
     public String getTitulo() {
         return titulo;
     }
-    
+
     public float getPrecio() {
         return precio;
     }
+
     public int getCantidad() {
         return cantidad;
     }
@@ -44,16 +43,19 @@ public class ProductoBean implements Serializable{
         return total;
     }
 
-    //setters
+    // setters
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
+
     public void setPrecio(float precio) {
         this.precio = (float) (Math.round(precio * 100.0) / 100.0);
     }
+
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
+
     public void setTotal(float total) {
         this.total = (float) (Math.round(total * 100.0) / 100.0);
     }

@@ -30,7 +30,7 @@ public class UsuarioDAO {
     // Método para registrar un usuario en la base de datos
     public boolean registroUsuario(String usuario, String password, String numeroTarjeta, String tipoTarjeta) throws SQLException {
         if (!validarContrasenha(password)) {
-            throw new IllegalArgumentException("La contraseña no cumple con los requisitos.");
+            throw new IllegalArgumentException("La contraseña no cumple con los requisitos. Debe tener al menos 8 caracteres, una letra mayúscula, un número y un carácter especial.");
         }
 
         if (usuario == null || usuario.isEmpty() || password == null || password.isEmpty()) {
